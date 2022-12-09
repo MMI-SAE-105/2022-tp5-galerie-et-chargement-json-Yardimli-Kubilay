@@ -9,12 +9,19 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body x-data="{
-    imgchiot: 'https://picsum.photos/id/237/400/300',
+    imgaffichage: 'https://picsum.photos/id/237/400/300',
     }">
     <h1>Galerie</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dolorem porro eligendi. Doloribus consectetur repellendus enim cumque assumenda! Inventore obcaecati dolorum sequi ullam adipisci at enim aperiam quidem sed ratione.</p>
-    <div class="overlay">
-        <figure><img :src="imgchiot" alt="image 237... un chiot"></figure>
+    <img src="https://picsum.photos/id/237/40/60" alt="miniature chiot"
+        @click="imgaffichage = 'https://picsum.photos/id/237/400/300'">
+    <img src="https://picsum.photos/id/236/40/60" alt="miniature maison"
+        @click="imgaffichage = 'https://picsum.photos/id/236/200/300'">
+    <div class="overlay"
+        x-show="imgaffichage"
+        @click="imgaffichage = null"
+        @keyup.escape.window="imageAffichee = null">
+        <figure><img :src="imgaffichage" alt="image 237... un chiot"></figure>
     </div>
 </body>
 </html>
